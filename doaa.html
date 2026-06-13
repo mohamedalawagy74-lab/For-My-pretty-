@@ -3,80 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مفاجأة لدعاء ❤️</title>
+    <title>مفاجأة دعاء ❤️</title>
     <style>
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: linear-gradient(135deg, #0f0c1b 0%, #201335 100%); color: #fff; text-align: center; margin: 0; min-height: 100vh; }
-        .login-container { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; padding: 20px; }
-        h1.main-title { color: #ff4a7d; font-size: 50px; margin: 0 0 10px 0; font-weight: 800; }
-        .login-subtitle { font-size: 16px; color: #b5a9cd; margin-bottom: 25px; }
-        input[type="text"] { padding: 15px; width: 250px; border-radius: 30px; border: 2px solid #ff4a7d; background: rgba(255, 255, 255, 0.05); color: #fff; text-align: center; font-size: 18px; outline: none; }
-        .btn-submit { padding: 12px 40px; background: linear-gradient(90deg, #ff4a7d, #e0285f); color: white; border: none; border-radius: 30px; cursor: pointer; font-size: 18px; margin-top: 20px; font-weight: bold; }
-        
-        #main-content { display: none; }
-        .nav-tabs { display: flex; justify-content: space-around; background: #161224; padding: 15px 10px; position: fixed; top: 0; width: 100%; z-index: 1000; }
-        .tab { color: #8e82a6; cursor: pointer; padding: 8px 16px; font-weight: 600; font-size: 16px; }
-        .tab.active { color: #ff4a7d; border-bottom: 2px solid #ff4a7d; }
-        .page { display: none; margin-top: 90px; padding: 20px 15px; }
-        .page.active { display: block; }
-        
-        .gallery-container { max-width: 450px; margin: 0 auto; }
-        .photo-card { background: rgba(32, 24, 53, 0.8); border-radius: 20px; padding: 15px; margin-bottom: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
-        .photo-card img { width: 100%; border-radius: 15px; display: block; }
-        .photo-caption { font-size: 18px; color: #ff5c8d; margin-top: 15px; font-weight: 600; }
-        .letter-box { font-size: 19px; color: #f1ebfc; margin: 20px auto; max-width: 450px; padding: 25px; background: rgba(32, 24, 53, 0.8); border-right: 5px solid #ff4a7d; border-radius: 15px; text-align: right; line-height: 1.9; white-space: pre-line; }
-        .video-box { margin: 20px auto; max-width: 450px; border-radius: 15px; overflow: hidden; }
+        body { font-family: sans-serif; background: #0f0c1b; color: #fff; text-align: center; margin: 0; }
+        .page { display: none; padding: 20px; }
+        .active { display: block; }
+        .card { background: #1a152e; padding: 15px; border-radius: 15px; margin: 15px auto; max-width: 400px; }
+        img { width: 100%; border-radius: 10px; }
+        .nav { position: fixed; bottom: 0; width: 100%; background: #161224; display: flex; justify-content: space-around; padding: 10px; }
+        button { background: #ff4a7d; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; }
     </style>
 </head>
 <body>
-    <div id="login-page" class="login-container">
-        <h1 class="main-title">Doaa</h1>
-        <div class="login-subtitle">أدخلي الرمز السري الفاتن ❤️</div>
-        <input type="text" id="password" placeholder="يوم/شهر/سنة"><br>
-        <button class="btn-submit" onclick="checkPassword()">دخول للمفاجأة ✨</button>
+
+    <div id="login" style="margin-top: 150px;">
+        <h1>أهلاً يا دعاء ❤️</h1>
+        <input type="text" id="pass" placeholder="دخلي التاريخ يا قمر"><br><br>
+        <button onclick="check()">دخول للمفاجأة</button>
     </div>
 
-    <div id="main-content">
-        <div class="nav-tabs">
-            <div class="tab active" onclick="switchTab('start')">البداية ❤️</div>
-            <div class="tab" onclick="switchTab('memories')">الذكريات 📸</div>
-            <div class="tab" onclick="switchTab('letters')">رسائل ✍️</div>
+    <div id="content" style="display: none;">
+        <div id="tab1" class="page active">
+            <h2>أغنية ليكِ يا دعاء ❤️</h2>
+            <iframe width="100%" height="200" src="https://www.youtube.com/embed/uS3o1fBqH9k" frameborder="0" allowfullscreen></iframe>
         </div>
 
-        <div id="start" class="page active">
-            <h2>كُل عام وأنتِ معي 🥰</h2>
-            <div class="video-box">
-                <iframe width="100%" height="250" src="https://www.youtube.com/embed/uS3o1fBqH9k" frameborder="0" allowfullscreen></iframe>
-            </div>
+        <div id="tab2" class="page">
+            <h2>ذكرياتنا 📸</h2>
+            <div class="card"><img src="https://i.ibb.co/FknBcFn6/1.jpg"></div>
+            <div class="card"><img src="https://i.ibb.co/mVVz6dTG/2.jpg"></div>
+            <div class="card"><img src="https://i.ibb.co/NgTGcM87/3.jpg"></div>
+            <div class="card"><img src="https://i.ibb.co/yc72kKdP/4.jpg"></div>
+            <div class="card"><img src="https://i.ibb.co/mrGXQ5T2/5.jpg"></div>
         </div>
 
-        <div id="memories" class="page">
-            <div class="gallery-container">
-                <div class="photo-card"><img src="https://i.ibb.co/FknBcFn6/1.jpg"><div class="photo-caption">اول صوره لينا مع بعض</div></div>
-                <div class="photo-card"><img src="https://i.ibb.co/mVVz6dTG/2.jpg"><div class="photo-caption">يوم مميز جدا 😘</div></div>
-                <div class="photo-card"><img src="https://i.ibb.co/NgTGcM87/3.jpg"><div class="photo-caption">ضحكتك هنا بالدنيا 🥰</div></div>
-                <div class="photo-card"><img src="https://i.ibb.co/yc72kKdP/4.jpg"><div class="photo-caption">مش عارف بس بحبها 😂❤️</div></div>
-                <div class="photo-card"><img src="https://i.ibb.co/mrGXQ5T2/5.jpg"><div class="photo-caption">❤️❤️😘</div></div>
-            </div>
+        <div id="tab3" class="page">
+            <h2>رسالة من القلب ❤️</h2>
+            <div class="card"><p>كل سنة وأنتِ طيبة يا دعاء.. أنتِ أغلى حاجة حصلت لي.</p></div>
         </div>
 
-        <div id="letters" class="page">
-            <div class="letter-box">دعاء، الأيام بتعدي والسنين بتجري بس أنتِ مكانتك في قلبي بتزيد مش بتقل. أتمنى السنة دي تكون العوض ليكِ وتحققي فيها كل أحلامك. شكراً إنك موجودة في حياتي ❤️</div>
+        <div class="nav">
+            <button onclick="go(1)">البداية</button>
+            <button onclick="go(2)">الصور</button>
+            <button onclick="go(3)">الرسالة</button>
         </div>
     </div>
 
     <script>
-        function checkPassword() {
-            if(document.getElementById("password").value.trim() === "16/6/2003") {
-                document.getElementById("login-page").style.display = "none";
-                document.getElementById("main-content").style.display = "block";
-            } else { alert("الرمز السري غلط يا قمر! جربي تاني 😉"); }
+        function check() {
+            if(document.getElementById('pass').value == "16/6/2003") {
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            } else { alert("الرمز غلط!"); }
         }
-        function switchTab(tabId) {
+        function go(n) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
+            document.getElementById('tab'+n).classList.add('active');
         }
     </script>
 </body>
