@@ -14,10 +14,10 @@
             padding: 0;
         }
         .login-container {
-            margin-top: 150px;
+            margin-top: 120px;
             padding: 20px;
         }
-        h1 { color: #ff4a7d; font-size: 42px; margin-bottom: 5px; }
+        h1 { color: #ff4a7d; font-size: 45px; margin-bottom: 5px; font-weight: bold; }
         input[type="text"] {
             padding: 12px;
             width: 220px;
@@ -53,22 +53,48 @@
         }
         .tab { color: #aaa; cursor: pointer; padding: 10px; font-weight: bold; font-size: 16px; }
         .tab.active { color: #ff4a7d; border-bottom: 2px solid #ff4a7d; }
-        .page { display: none; margin-top: 100px; padding: 10px; }
+        .page { display: none; margin-top: 80px; padding: 10px; padding-bottom: 40px; }
         .page.active { display: block; }
-        .btn-drive {
-            display: inline-block;
-            background: #ff4a7d;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            margin-top: 30px;
-            font-size: 18px;
-            box-shadow: 0 4px 15px rgba(255, 74, 125, 0.4);
-        }
         p { font-size: 18px; line-height: 1.6; color: #ddd; }
-        h2 { color: #ff4a7d; }
+        h2 { color: #ff4a7d; margin-top: 20px; }
+        
+        /* استايل ألبوم الصور اللي زي الفيديو */
+        .gallery-container {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+        .photo-card {
+            background: #161224;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        .photo-card img {
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+        }
+        .photo-caption {
+            font-size: 18px;
+            color: #ff4a7d;
+            margin-top: 12px;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+        .letter-box {
+            font-size: 19px; 
+            color: #fff; 
+            margin-top: 30px; 
+            padding: 25px; 
+            border-right: 5px solid #ff4a7d; 
+            background: #161224; 
+            border-radius: 10px;
+            text-align: right;
+            line-height: 1.8;
+            white-space: pre-line;
+        }
     </style>
 </head>
 <body>
@@ -90,19 +116,49 @@
         <div id="start" class="page active">
             <h2>كل عام وأنتِ معي ❤️</h2>
             <p>إلى الشخص الذي غير حياتي للأجمل..</p>
-            <p>هذا الموقع الصغير هو محاولة بسيطة لأقول لكِ كُل عام وأنتِ بقلبي.</p>
+            <p>هذا الموقع الصغير هو محاولة بسيطة لأقول لكِ كُل عام وأنتِ بقلبي وبأفضل حال.</p>
         </div>
 
         <div id="memories" class="page">
             <h2>لحظات لا تُنسى 📸</h2>
-            <p>اضغطي على الزرار تحت عشان تشوفي ألبوم الصور بتاعنا والترتيب اللي رتبتهولك مخصوص وجوا الأغنية هتحلي كل حاجة:</p>
-            <a href="https://drive.google.com/drive/folders/1z_ozIAdBE6HXzfiCZknwmxq1iLXt8riR" target="_blank" class="btn-drive">🔗 افتحي ألبوم الصور من هنا</a>
+            <div class="gallery-container">
+                
+                <div class="photo-card">
+                    <img src="https://open-image.imgbb.com/FknBcFn6.jpg" onerror="this.src='https://ibb.co/FknBcFn6'" alt="صورة 1">
+                    <div class="photo-caption">اول صوره لينا مع بعض</div>
+                </div>
+
+                <div class="photo-card">
+                    <img src="https://open-image.imgbb.com/mVVz6dTG.jpg" onerror="this.src='https://ibb.co/mVVz6dTG'" alt="صورة 2">
+                    <div class="photo-caption">يوم مميز جدا😘</div>
+                </div>
+
+                <div class="photo-card">
+                    <img src="https://open-image.imgbb.com/NgTGcM87.jpg" onerror="this.src='https://ibb.co/NgTGcM87'" alt="صورة 3">
+                    <div class="photo-caption">ضحكتك هنا بالدنيا كلها 🥰</div>
+                </div>
+
+                <div class="photo-card">
+                    <img src="https://open-image.imgbb.com/yc72kKdP.jpg" onerror="this.src='https://ibb.co/yc72kKdP'" alt="صورة 4">
+                    <div class="photo-caption">مش عارف بس بحبها 😂❤️</div>
+                </div>
+
+                <div class="photo-card">
+                    <img src="https://open-image.imgbb.com/mrGXQ5T2.jpg" onerror="this.src='https://ibb.co/mrGXQ5T2'" alt="صورة 5">
+                    <div class="photo-caption">❤️❤️😘</div>
+                </div>
+
+            </div>
         </div>
 
         <div id="letters" class="page">
-            <h2>كلمة أخيرة ✍️</h2>
-            <div style="font-size: 20px; color: #ff4a7d; margin-top: 40px; padding: 20px; border-right: 4px solid #ff4a7d; background: #161224; border-radius: 10px;">
-                "الأيام بتعدي والسنين بتجري، بس مكانتك في قلبي بتزيد مش بتقل.. شكراً إنك موجودة في حياتي."
+            <h2>كلمة من القلب ✍️</h2>
+            <div class="letter-box">
+دعاء الأيام بتعدي والسنين بتجري بس أنتِ مكانتك في قلبي بتزيد مش بتقل.❤️
+
+أتمنالك سنة سعيدة وعيد ميلاد سعيد وأتمنى السنة دي تكون العوض ليكِ عن كل اللي فات وتحققي فيها كل أحلامك ❤️🥰🥰
+
+شكراً إنك موجودة في حياتي ❤️❤️
             </div>
         </div>
     </div>
@@ -114,12 +170,10 @@
     <script>
         function checkPassword() {
             var pass = document.getElementById("password").value.trim();
-            // الباسورد المطلوب بالظبط
             if(pass === "16/6/2003") {
                 document.getElementById("login-page").style.display = "none";
                 document.getElementById("main-content").style.display = "block";
                 
-                // تشغيل الأغنية فوراً عند الدخول
                 var audio = document.getElementById("bg-music");
                 audio.play().catch(function(error) {
                     console.log("المتصفح يحتاج تفاعل لتشغيل الصوت تلقائياً");
