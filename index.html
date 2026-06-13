@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مفاجأة لدعاء</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0b0914;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .login-container {
+            margin-top: 150px;
+            padding: 20px;
+        }
+        h1 { color: #ff4a7d; font-size: 42px; margin-bottom: 5px; }
+        input[type="text"] {
+            padding: 12px;
+            width: 220px;
+            border-radius: 25px;
+            border: 2px solid #ff4a7d;
+            background: transparent;
+            color: #fff;
+            text-align: center;
+            font-size: 18px;
+            outline: none;
+            margin-top: 15px;
+        }
+        button {
+            padding: 12px 40px;
+            background-color: #ff4a7d;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        #main-content { display: none; padding: 20px; }
+        .nav-tabs {
+            display: flex;
+            justify-content: space-around;
+            background: #161224;
+            padding: 15px 10px;
+            position: fixed;
+            top: 0; width: 100%;
+            z-index: 1000;
+        }
+        .tab { color: #aaa; cursor: pointer; padding: 10px; font-weight: bold; font-size: 16px; }
+        .tab.active { color: #ff4a7d; border-bottom: 2px solid #ff4a7d; }
+        .page { display: none; margin-top: 100px; padding: 10px; }
+        .page.active { display: block; }
+        .btn-drive {
+            display: inline-block;
+            background: #ff4a7d;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 30px;
+            font-size: 18px;
+            box-shadow: 0 4px 15px rgba(255, 74, 125, 0.4);
+        }
+        p { font-size: 18px; line-height: 1.6; color: #ddd; }
+        h2 { color: #ff4a7d; }
+    </style>
+</head>
+<body>
+
+    <div id="login-page" class="login-container">
+        <h1>Doaa</h1>
+        <p style="color: #ff4a7d; font-weight: bold;">منطقة محمية.. أدخل الرمز السري</p>
+        <input type="text" id="password" placeholder="يوم/شهر/سنة"><br>
+        <button onclick="checkPassword()">فتح الموقع</button>
+    </div>
+
+    <div id="main-content">
+        <div class="nav-tabs">
+            <div class="tab active" onclick="switchTab('start')">البداية</div>
+            <div class="tab" onclick="switchTab('memories')">الذكريات</div>
+            <div class="tab" onclick="switchTab('letters')">رسائل</div>
+        </div>
+
+        <div id="start" class="page active">
+            <h2>كل عام وأنتِ معي ❤️</h2>
+            <p>إلى الشخص الذي غير حياتي للأجمل..</p>
+            <p>هذا الموقع الصغير هو محاولة بسيطة لأقول لكِ كُل عام وأنتِ بقلبي.</p>
+        </div>
+
+        <div id="memories" class="page">
+            <h2>لحظات لا تُنسى 📸</h2>
+            <p>اضغطي على الزرار تحت عشان تشوفي ألبوم الصور بتاعنا والترتيب اللي رتبتهولك مخصوص وجوا الأغنية هتحلي كل حاجة:</p>
+            <a href="https://drive.google.com/drive/folders/1z_ozIAdBE6HXzfiCZknwmxq1iLXt8riR" target="_blank" class="btn-drive">🔗 افتحي ألبوم الصور من هنا</a>
+        </div>
+
+        <div id="letters" class="page">
+            <h2>كلمة أخيرة ✍️</h2>
+            <div style="font-size: 20px; color: #ff4a7d; margin-top: 40px; padding: 20px; border-right: 4px solid #ff4a7d; background: #161224; border-radius: 10px;">
+                "الأيام بتعدي والسنين بتجري، بس مكانتك في قلبي بتزيد مش بتقل.. شكراً إنك موجودة في حياتي."
+            </div>
+        </div>
+    </div>
+
+    <audio id="bg-music" loop preload="auto">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function checkPassword() {
+            var pass = document.getElementById("password").value.trim();
+            // الباسورد المطلوب بالظبط
+            if(pass === "16/6/2003") {
+                document.getElementById("login-page").style.display = "none";
+                document.getElementById("main-content").style.display = "block";
+                
+                // تشغيل الأغنية فوراً عند الدخول
+                var audio = document.getElementById("bg-music");
+                audio.play().catch(function(error) {
+                    console.log("المتصفح يحتاج تفاعل لتشغيل الصوت تلقائياً");
+                });
+            } else {
+                alert("الرمز السري غلط يا قمر! جربي تاني 😉");
+            }
+        }
+
+        function switchTab(tabId) {
+            var pages = document.querySelectorAll('.page');
+            var tabs = document.querySelectorAll('.tab');
+            pages.forEach(p => p.classList.remove('active'));
+            tabs.forEach(t => t.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
