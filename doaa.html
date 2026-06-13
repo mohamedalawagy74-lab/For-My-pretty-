@@ -2,63 +2,23 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مفاجأة دعاء ❤️</title>
-    <style>
-        body { font-family: sans-serif; background: #0f0c1b; color: #fff; text-align: center; margin: 0; }
-        .page { display: none; padding: 20px; }
-        .active { display: block; }
-        .card { background: #1a152e; padding: 15px; border-radius: 15px; margin: 15px auto; max-width: 400px; }
-        img { width: 100%; border-radius: 10px; }
-        .nav { position: fixed; bottom: 0; width: 100%; background: #161224; display: flex; justify-content: space-around; padding: 10px; }
-        button { background: #ff4a7d; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; }
-    </style>
+    <title>مفاجأة لدعاء ❤️</title>
 </head>
-<body>
-
-    <div id="login" style="margin-top: 150px;">
-        <h1>أهلاً يا دعاء ❤️</h1>
-        <input type="text" id="pass" placeholder="دخلي التاريخ يا قمر"><br><br>
-        <button onclick="check()">دخول للمفاجأة</button>
-    </div>
-
-    <div id="content" style="display: none;">
-        <div id="tab1" class="page active">
-            <h2>أغنية ليكِ يا دعاء ❤️</h2>
-            <iframe width="100%" height="200" src="https://www.youtube.com/embed/uS3o1fBqH9k" frameborder="0" allowfullscreen></iframe>
-        </div>
-
-        <div id="tab2" class="page">
-            <h2>ذكرياتنا 📸</h2>
-            <div class="card"><img src="https://i.ibb.co/FknBcFn6/1.jpg"></div>
-            <div class="card"><img src="https://i.ibb.co/mVVz6dTG/2.jpg"></div>
-            <div class="card"><img src="https://i.ibb.co/NgTGcM87/3.jpg"></div>
-            <div class="card"><img src="https://i.ibb.co/yc72kKdP/4.jpg"></div>
-            <div class="card"><img src="https://i.ibb.co/mrGXQ5T2/5.jpg"></div>
-        </div>
-
-        <div id="tab3" class="page">
-            <h2>رسالة من القلب ❤️</h2>
-            <div class="card"><p>كل سنة وأنتِ طيبة يا دعاء.. أنتِ أغلى حاجة حصلت لي.</p></div>
-        </div>
-
-        <div class="nav">
-            <button onclick="go(1)">البداية</button>
-            <button onclick="go(2)">الصور</button>
-            <button onclick="go(3)">الرسالة</button>
-        </div>
+<body style="background:#0f0c1b; color:white; text-align:center; font-family:sans-serif;">
+    <h1 style="margin-top:100px;">أهلاً يا دعاء ❤️</h1>
+    <input type="text" id="pass" placeholder="دخلي التاريخ يا قمر" style="padding:10px;">
+    <button onclick="check()" style="padding:10px;">دخول</button>
+    
+    <div id="content" style="display:none; margin-top:50px;">
+        <h2>أغنية ليكِ يا دعاء ❤️</h2>
+        <iframe width="300" height="200" src="https://www.youtube.com/embed/uS3o1fBqH9k"></iframe>
     </div>
 
     <script>
         function check() {
             if(document.getElementById('pass').value == "16/6/2003") {
-                document.getElementById('login').style.display = 'none';
                 document.getElementById('content').style.display = 'block';
-            } else { alert("الرمز غلط!"); }
-        }
-        function go(n) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById('tab'+n).classList.add('active');
+            } else { alert("غلط!"); }
         }
     </script>
 </body>
